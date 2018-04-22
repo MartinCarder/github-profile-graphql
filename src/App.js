@@ -41,11 +41,7 @@ class App extends Component {
           return (
             <div className="App">
               <Profile
-                avatarUrl={user.avatarUrl}
-                bio={user.bio}
-                company={user.company}
-                location={user.location}
-                name={user.name}
+                {...user}
               />
               <Repositories repositoriesList={user.repositories}/>
             </div>

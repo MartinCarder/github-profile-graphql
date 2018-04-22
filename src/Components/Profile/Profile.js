@@ -5,7 +5,23 @@ const Profile = ({ avatarUrl, bio, company, location, name, login }) => {
   return (
     <div>
       <ProfileImg img={avatarUrl} />
-      { name } { login }!! { bio && bio } { company && company } { location && location }
+      <p data-id='name'>{ name }</p>
+      <p data-id='login'>{login}</p>
+      { bio &&
+        (
+          <p data-id='bio'>{bio}</p>
+        )
+      }
+      { company &&
+        (
+          <p data-id='company'>{company}</p>
+        )
+      }
+      { location &&
+        (
+          <p data-id='location'>{location}</p>
+        )
+      }
     </div>
   )
 }
