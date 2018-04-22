@@ -15,7 +15,7 @@ const GET_USER = gql`
       name
       location
       login
-      repositories(first: 20) {
+      repositories(first: 20,  orderBy: {field: PUSHED_AT, direction: DESC}) {
         pageInfo{
           endCursor
           startCursor

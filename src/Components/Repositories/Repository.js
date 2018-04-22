@@ -1,11 +1,12 @@
 import React from 'react'
+import { Container } from './Repository.styles'
 
 const Repository = ({ name, description }) => {
   return (
-    <div>
-      {name}
-      {description}
-    </div>
+    <Container>
+      <p>{name}</p>
+      <p>{description}</p>
+    </Container>
   )
 }
 
