@@ -18,15 +18,78 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "lint": "eslint src",
     "test": "react-scripts test --env=jsdom",
+    "precommit": "lint-staged",
+    "prepush": "CI=true yarn test",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
     "apollo-mocknetworkinterface": "^2.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-jest": "^23.0.0-alpha.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-react-app": "^3.1.1",
+    "babel-runtime": "^6.26.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
-    "jest-styled-components": "^5.0.1"
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-react-app": "^3.0.0-next.b2fd8db8",
+    "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^0.14.3",
+    "jest-styled-components": "^5.0.1",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.11.1"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "prettier --config package.json --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 120,
+    "semi": false
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "jsx-a11y/href-no-hash": 0,
+      "prettier/prettier": [
+        "warn",
+        {
+          "singleQuote": true,
+          "trailingComma": "es5",
+          "bracketSpacing": true,
+          "jsxBracketSameLine": true,
+          "semi": false,
+          "printWidth": 120
+        }
+      ]
+    }
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">1%",
+      "last 4 versions",
+      "Firefox ESR",
+      "not ie < 11"
+    ]
   },
   "jest": {
     "collectCoverageFrom": [

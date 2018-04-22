@@ -113,7 +113,7 @@ Object {
                       },
                       "value": Object {
                         "kind": "IntValue",
-                        "value": "20",
+                        "value": "50",
                       },
                     },
                     Object {
@@ -258,7 +258,7 @@ Object {
   ],
   "kind": "Document",
   "loc": Object {
-    "end": 356,
+    "end": 357,
     "start": 0,
   },
 }
@@ -269,18 +269,20 @@ exports[`<App /> snapshot of App 1`] = `
   className="App"
 >
   <Profile
+    avatarUrl="http://"
+    login="martincarder"
     name="martin carder"
     repositories={
-      Array [
-        "data",
-      ]
+      Object {
+        "nodes": Array [],
+      }
     }
   />
   <Repositories
     repositoriesList={
-      Array [
-        "data",
-      ]
+      Object {
+        "nodes": Array [],
+      }
     }
   />
 </div>

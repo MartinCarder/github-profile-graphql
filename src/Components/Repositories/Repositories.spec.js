@@ -7,19 +7,19 @@ describe('<Repositories />', () => {
   const repos = {
     nodes: [
       {
-        id: 1234,
+        id: '1234',
         name: 'Repo one',
-        description: 'This is repo one!'
+        description: 'This is repo one!',
       },
       {
-        id: 1235,
+        id: '1235',
         name: 'Repo two',
-        description: 'This is repo two!'
-      }
-    ]
+        description: 'This is repo two!',
+      },
+    ],
   }
   it('renders correct number of Repositories', () => {
-    const wrapper = shallow(<Repositories repositoriesList={repos}/>)
+    const wrapper = shallow(<Repositories repositoriesList={repos} />)
     expect(wrapper.find(Repository).length).toEqual(2)
   })
 })
