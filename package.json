@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "apollo-boost": "^0.1.4",
+    "apollo-client": "^2.2.8",
     "apollo-link-context": "^1.0.8",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.1",
@@ -21,8 +22,17 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "apollo-mocknetworkinterface": "^2.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
     "jest-styled-components": "^5.0.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js",
+      "!src/config.js"
+    ]
   }
 }

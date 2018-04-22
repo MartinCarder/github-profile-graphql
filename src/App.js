@@ -3,10 +3,8 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import Profile from './Components/Profile/Profile'
 import Repositories from './Components/Repositories/Repositories'
-import logo from './logo.svg';
-import './App.css';
 
-const GET_USER = gql`
+export const GET_USER = gql`
   {
     user(login: "gaearon" ) {
       avatarUrl
@@ -30,23 +28,25 @@ const GET_USER = gql`
   }
 `;
 
+export const ComponentWrapper = ({ loading, error, data }) => {
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`
+  const { user } = data
+  return (
+    <div className="App">
+      <Profile
+        {...user}
+      />
+      <Repositories repositoriesList={user.repositories}/>
+    </div>
+  )
+}
+
 class App extends Component {
   render() {
     return (
       <Query query={GET_USER}>
-        {({ loading, error, data }) => {
-          if (loading) return "Loading...";
-          if (error) return `Error! ${error.message}`
-          const { user } = data
-          return (
-            <div className="App">
-              <Profile
-                {...user}
-              />
-              <Repositories repositoriesList={user.repositories}/>
-            </div>
-          )
-        }}
+        {(props) => <ComponentWrapper {...props}/>}
       </Query>
 
     );
